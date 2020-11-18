@@ -11,6 +11,7 @@ import { AuthModule } from './auth/auth.module';
 
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
+import { Router } from '@angular/router';
 
 
 
@@ -31,4 +32,11 @@ import { ComposeMessageComponent } from './compose-message/compose-message.compo
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  // to inspect the router's configuration
+  constructor(router: Router){
+    const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
+
+    console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
+  }
+}

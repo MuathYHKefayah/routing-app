@@ -24,7 +24,10 @@ const appRoutes: Routes = [
     loadChildren: () => import('./crisis-center/crisis-center.module').then(m=> m.CrisisCenterModule),
     data: { preload: true }
   },
-  {path: '', redirectTo: '/heroes', pathMatch: 'full'},
+  // heroes => superheroes
+  //the empty path route redirects to /heroes, which redirects to /superheroes. 
+  //This won't work because the Router handles redirects once at each level of routing configuration
+  {path: '', redirectTo: '/superheroes', pathMatch: 'full'}, 
   {path: '**' , component: PageNotFoundComponent},
 ]
 
@@ -45,6 +48,7 @@ const appRoutes: Routes = [
   exports: [
     RouterModule
   ],
+  // we can set [ PreloadAllModules ] To enable preloading of all lazy loaded modules
   // Add this serevice strategy to the AppRoutingModule providers array to be injectable elsewhere in the app.
   providers: [ SelectivePreloadingStartegyService ] 
 })

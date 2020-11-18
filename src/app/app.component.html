@@ -1,7 +1,8 @@
 <h1>Angular Router</h1>
 <nav>
   <a class="button" routerLink="/crisis-center" routerLinkActive="activebutton"> Crisis Center</a>
-  <a class="button" routerLink="/heroes" routerLinkActive="activebutton"> Heroes</a>
+  <!-- we changed heroes to superheroes due to routerLink isn't tied to route configuration -->
+  <a class="button" routerLink="/superheroes" routerLinkActive="activebutton"> Heroes</a>
   <a class="button" routerLink="/admin" routerLinkActive="activebutton">Admin</a>
   <a class="button" routerLink="/login" routerLinkActive="activebutton">Login</a>
   <a class="button" [routerLink]="[{ outlets: { popup: ['compose'] } }]" routerLinkActive="activebutton">Contact</a>
